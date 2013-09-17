@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
   gem.version       = HTML_Pipeline::AsciiDocFilter::VERSION
   gem.authors       = ['Dan Allen']
   gem.email         = ['dan.j.allen@gmail.com']
-  gem.summary       = %(An AsciiDoc filter for html-pipeline based on Asciidoctor)
-  gem.description   = %(An AsciiDoc filter for html-pipeline based on Asciidoctor)
+  gem.summary       = %(An AsciiDoc processing filter for html-pipeline based on Asciidoctor)
+  gem.description   = %(An AsciiDoc processing filter for html-pipeline based on Asciidoctor)
   gem.homepage      = 'https://github.com/asciidoctor/html-pipeline-asciidoc_filter'
   gem.license       = 'MIT'
 

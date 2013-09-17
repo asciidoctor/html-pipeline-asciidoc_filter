@@ -1,5 +1,10 @@
 = html-pipeline-asciidoc_filter - An AsciiDoc filter for html-pipeline
 Dan Allen
+ifndef::safe-mode-name[]
+
+[float]
+= html-pipeline-asciidoc_filter - An AsciiDoc processing filter for html-pipeline
+endif::safe-mode-name[]
 
 An AsciiDoc processing filter for https://github.com/jch/html-pipeline[html-pipeline] based on https://asciidoctor.org[Asciidoctor].
 

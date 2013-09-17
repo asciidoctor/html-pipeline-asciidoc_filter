@@ -2,6 +2,6 @@
 # and we don't want to define it here inadvertently
 module HTML_Pipeline
 class AsciiDocFilter
-  VERSION = '0.1.4'
+  VERSION = '1.5.0.dev'
 end
 end

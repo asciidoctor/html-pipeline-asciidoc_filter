@@ -1,5 +1,5 @@
 /.ruby-*
 /Gemfile.lock
+/examples/Gemfile.lock
 /README.html
 /pkg/
-/test.rb

@@ -1,10 +1,5 @@
 = AsciiDoc filter for html-pipeline
 Dan Allen
-ifndef::safe-mode-name[]
-
-[float]
-= AsciiDoc filter for html-pipeline
-endif::safe-mode-name[]
 
 https://rubygems.org/gems/html-pipeline-asciidoc_filter[html-pipeline-asciidoc_filter] is an AsciiDoc processing filter for https://github.com/jch/html-pipeline[html-pipeline] based on https://asciidoctor.org[Asciidoctor].
 
@@ -67,12 +62,20 @@ puts pipeline.call(input)[:output]
 
 == Note about dependencies
 
-You'll need the following two dependencies which aren't declared by +html-pipeline+ or this filter.
+You'll need the following dependencies in your Gemfile which aren't declared by +html-pipeline+ or this filter.
 
+.Gemfile
 [source,ruby]
 ----
-gem 'activesupport', '>= 2'
-gem 'github-linguist', '~> 1.2.6'
+gem 'html-pipeline-asciidoc_filter', '0.1.4'
+# gemoji needed for EmojiFilter
+gem 'gemoji', '~> 1.0'
+# rinku needed for AutolinkFilter
+gem 'rinku', '~> 1.7'
+# sanitize needed for Sanitization Filter
+gem 'sanitize', '~> 2.0'
+# github-linguist needed for SyntaxHighlightFilter
+gem 'github-linguist', (RUBY_VERSION < '2.1.0' ? '~> 2.6.2', '~> 2.10')
 ----
 
 == TODO
@@ -84,7 +87,7 @@ gem 'github-linguist', '~> 1.2.6'
 
 == Copyright and License
 
-Copyright (C) 2013 Dan Allen
+Copyright (C) 2014 Dan Allen
 Free use of this software is granted under the terms of the MIT License.
 
 See the {license}[LICENSE] file for details.

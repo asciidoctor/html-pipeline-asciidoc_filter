@@ -67,7 +67,7 @@ You'll need the following dependencies in your Gemfile which aren't declared by 
 .Gemfile
 [source,ruby]
 ----
-gem 'html-pipeline-asciidoc_filter', '0.1.4'
+gem 'html-pipeline-asciidoc_filter'
 # gemoji needed for EmojiFilter
 gem 'gemoji', '~> 1.0'
 # rinku needed for AutolinkFilter

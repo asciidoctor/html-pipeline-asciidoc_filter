@@ -53,7 +53,7 @@ class HTML::Pipeline
   #   [source,ruby]
   #   --
   #   require 'asciidoctor'
-  #   puts Asciidoctor.render('This filter brought to you by http://asciidoctor.org[Asciidoctor].')
+  #   puts Asciidoctor.convert('This filter brought to you by http://asciidoctor.org[Asciidoctor].')
   #   --
   #
   #   :shipit: 
@@ -68,7 +68,7 @@ class HTML::Pipeline
   
     # Convert AsciiDoc to HTML using Asciidoctor
     def call
-      Asciidoctor.render @text, :attributes => 'showtitle idprefix idseparator=- env=github env-github source-highlighter=html-pipeline'
+      Asciidoctor.convert @text, :safe => :secure, :attributes => %w(showtitle idprefix idseparator=- env=github env-github source-highlighter=html-pipeline)
     end
 
   end

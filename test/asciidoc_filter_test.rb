@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'html/pipeline/asciidoc_filter'
 
-class HTML::Pipeline::AsciiDocFilterTest < Test::Unit::TestCase
+class HTML::Pipeline::AsciiDocFilterTest < Minitest::Test
 
   AsciiDocFilter = HTML::Pipeline::AsciiDocFilter
 

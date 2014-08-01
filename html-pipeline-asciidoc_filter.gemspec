@@ -17,13 +17,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r"^test/")
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'html-pipeline', '~> 0.3'
+  gem.add_dependency 'html-pipeline', '~> 1.9.0'
   gem.add_dependency 'asciidoctor', '= 0.1.4'
-
-  # activesupport should be a dependency of html-pipeline; cannot it load html-pipeline without it
-  gem.add_development_dependency 'activesupport', RUBY_VERSION < '1.9.3' ? ['>= 2', '< 4'] : '>= 2'
-
-  gem.add_development_dependency 'bundler', '~> 1.3'
-  gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'github-linguist', '~> 2.6.2'
 end

@@ -1,10 +1,8 @@
 require 'asciidoctor'
-require 'erb'
 require 'html/pipeline/filter'
 require 'html/pipeline/text_filter'
 
 class HTML::Pipeline
-
   # HTML Filter that converts AsciiDoc text into HTML.
   #
   # This filter is different from most in that it can take a non-HTML as
@@ -68,9 +66,7 @@ class HTML::Pipeline
   
     # Convert AsciiDoc to HTML using Asciidoctor
     def call
-      Asciidoctor.convert @text, :safe => :secure, :attributes => %w(showtitle idprefix idseparator=- env=github env-github source-highlighter=html-pipeline)
+      Asciidoctor.convert @text, :safe => :secure, :attributes => %w(showtitle=@ idprefix= idseparator=- env=github env-github source-highlighter=html-pipeline)
     end
-
   end
-
 end

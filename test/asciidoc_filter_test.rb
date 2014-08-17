@@ -17,6 +17,14 @@ Paragraph in preamble
 Paragraph in section
     EOS
 
+    @hidden_doctitle_example = <<-EOS
+= Sample Document
+Author Name
+:showtitle!:
+
+Paragraph content
+    EOS
+
     @source_code_example = <<-EOS
 ```ruby
 def hello()
@@ -32,6 +40,13 @@ end
     assert_equal 1, doc.css('h1').size
     assert_equal 1, doc.css('#preamble p').size
     assert_equal 1, doc.css('h2#sample-section').size
+  end
+
+  def test_for_hidden_document_title
+    doc = AsciiDocFilter.to_document(@hidden_doctitle_example)
+    assert doc.kind_of?(HTML::Pipeline::DocumentFragment)
+    assert_equal 0, doc.css('h1').size
+    assert_equal 1, doc.css('.paragraph p').size
   end
 
   def test_for_lang_attribute_on_source_code_block

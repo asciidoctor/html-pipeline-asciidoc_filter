@@ -26,7 +26,7 @@ filters = [
 ]
 
 context = {
-  :asset_root => 'https://github.global.ssl.fastly.net/images/icons/emoji'
+  :asset_root => 'https://assets-cdn.github.com/images/icons'
 }
 
 pipeline = HTML::Pipeline.new filters, context
@@ -51,10 +51,13 @@ Section content.
 --
 require 'asciidoctor'
 
-puts Asciidoctor.render('This filter brought to you by http://asciidoctor.org[Asciidoctor].')
+puts Asciidoctor.convert('This filter brought to you by http://asciidoctor.org[Asciidoctor].')
 --
 
-:shipit: 
+See <<Sample Section>>.
+
+[normal]
+ :shipit: 
 EOS
 
 puts pipeline.call(input)[:output]
@@ -87,7 +90,7 @@ gem 'github-linguist', (RUBY_VERSION < '2.1.0' ? '~> 2.6.2', '~> 2.10')
 
 == Copyright and License
 
-Copyright (C) 2014 Dan Allen
+Copyright (C) 2014-2015 Dan Allen
 Free use of this software is granted under the terms of the MIT License.
 
 See the {license}[LICENSE] file for details.

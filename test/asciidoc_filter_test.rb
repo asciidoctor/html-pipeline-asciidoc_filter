@@ -25,6 +25,18 @@ Author Name
 Paragraph content
     EOS
 
+    @duplicate_heading_example = <<-EOS
+= Sample Document
+
+== Section Heading
+
+content
+
+== Section Heading
+
+content
+    EOS
+
     @source_code_example = <<-EOS
 ```ruby
 def hello()
@@ -32,6 +44,28 @@ def hello()
 end
 ```
     EOS
+
+    @checklist_example = <<-EOS
+* [ ] todo
+* [x] done
+    EOS
+
+    @compatibility_example = <<-EOS
+`monospaced`
+
++{empty}+
+
+`+{blank}+`
+    EOS
+  end
+
+  def test_for_document_structure
+    result = {}
+    AsciiDocPipeline.call(@doctitle_example, {}, result)
+    output = result[:output]
+    assert_equal 1, output.css('h1').size
+    assert_equal 1, output.css('h2').size
+    assert_equal 2, output.css('p').size
   end
 
   def test_for_document_title
@@ -47,6 +81,14 @@ end
     assert doc.kind_of?(HTML::Pipeline::DocumentFragment)
     assert_equal 0, doc.css('h1').size
     assert_equal 1, doc.css('.paragraph p').size
+  end
+
+  def test_for_id_deduplication_count
+    doc = AsciiDocFilter.to_document(@duplicate_heading_example)
+    assert doc.kind_of?(HTML::Pipeline::DocumentFragment)
+    assert_equal 1, doc.css('h2#section-heading').size
+    assert_equal 1, doc.css('h2#section-heading-1').size
+    assert_equal 0, doc.css('h2#section-heading-2').size
   end
 
   def test_for_lang_attribute_on_source_code_block
@@ -78,12 +120,26 @@ end
 </div>), result[:output].to_s
   end
 
-  def test_for_document_structure
+  def test_for_checklist_markers
     result = {}
-    AsciiDocPipeline.call(@doctitle_example, {}, result)
-    output = result[:output]
-    assert_equal 1, output.css('h1').size
-    assert_equal 1, output.css('h2').size
-    assert_equal 2, output.css('p').size
+    AsciiDocPipeline.call(@checklist_example, {}, result)
+    fragment = result[:output]
+    assert fragment.kind_of?(HTML::Pipeline::DocumentFragment)
+    output = fragment.to_s
+    assert output.include?(%(#{entity 10063} todo))
+    assert output.include?(%(#{entity 10003} done))
+  end
+
+  def test_for_compat_mode_off_by_default
+    doc = AsciiDocFilter.to_document(@compatibility_example)
+    assert doc.kind_of?(HTML::Pipeline::DocumentFragment)
+    assert_equal 2, doc.css('code').size
+    assert_equal 'monospaced', doc.css('code')[0].text
+    assert_equal '{blank}', doc.css('code')[1].text
+    assert_equal '{empty}', doc.css('p')[1].text
+  end
+
+  def entity(number)
+    [number].pack('U*')
   end
 end

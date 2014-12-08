@@ -2,6 +2,8 @@ require 'asciidoctor'
 require 'html/pipeline/filter'
 require 'html/pipeline/text_filter'
 
+Asciidoctor::Compliance.unique_id_start_index = 1
+
 class HTML::Pipeline
   # HTML Filter that converts AsciiDoc text into HTML.
   #

@@ -17,6 +17,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(/^test\//)
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'html-pipeline', '~> 1.9.0'
-  gem.add_dependency 'asciidoctor', '~> 1.5.0'
+  gem.add_dependency 'html-pipeline', '~> 1.11.0'
+  gem.add_dependency 'asciidoctor', '~> 1.5.2'
 end

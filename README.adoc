@@ -1,6 +1,6 @@
 = AsciiDoc filter for html-pipeline
 Dan Allen
-:uri-license: LICENSE
+:uri-license: link:LICENSE
 
 https://rubygems.org/gems/html-pipeline-asciidoc_filter[html-pipeline-asciidoc_filter] is an AsciiDoc processing filter for https://github.com/jch/html-pipeline[html-pipeline] based on https://asciidoctor.org[Asciidoctor].
 

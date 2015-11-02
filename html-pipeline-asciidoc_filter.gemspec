@@ -18,5 +18,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'html-pipeline', '~> 2.2.2'
-  gem.add_dependency 'asciidoctor', '~> 1.5.2'
+  gem.add_dependency 'asciidoctor', '~> 1.5.3'
 end

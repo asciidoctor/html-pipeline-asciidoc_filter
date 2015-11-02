@@ -50,14 +50,17 @@ See <<Sample Section>>.
 
 [normal]
  :ship: 
+
+* [ ] todo
+* [x] done
 EOS
 
 puts <<-EOS
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://assets-cdn.github.com/assets/github-2a88a7bf0ff1b660d7ff29c3220a68751650b37fc53d40d3a7068e835fd213ec.css">
-<link rel="stylesheet" href="https://assets-cdn.github.com/assets/github2-ee4170e0122d252766e3edc8c97b6cc6ae381c974013b5047ed5ad8895c56fe0.css">
+<link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-4b3a5bbd58771cb35e8ab63d46cf27dbc5c339d72b3db8553f131c9efa8618af.css" integrity="sha256-SzpbvVh3HLNeirY9Rs8n28XDOdcrPbhVPxMcnvqGGK8=" media="all" rel="stylesheet">
+<link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2-00a8be553371a21678bd88362a07c328eda1b6f1a38d00f799b6bb3b99198706.css" integrity="sha256-AKi+VTNxohZ4vYg2KgfDKO2htvGjjQD3mba7O5kZhwY=" media="all" rel="stylesheet">
 </head>
 <body>
 <div id="readme">

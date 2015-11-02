@@ -4,7 +4,8 @@ require 'bundler/gem_tasks'
 require 'rake/testtask'
 
 # Enhance the release task to create an explicit commit for the release
-Rake::Task[:release].enhance [:commit_release]
+# WARNING no longer works; it's now necessary to get master in a state ready for tagging
+#Rake::Task[:release].enhance [:commit_release]
 
 # NOTE you don't need to push after updating version and committing locally
 task :commit_release do
